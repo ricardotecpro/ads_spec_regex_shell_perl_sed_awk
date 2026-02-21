@@ -52,7 +52,8 @@ def test_mermaid_syntax_safety(file_path, start_line, block):
         # A simpler check: if [] contains ( or ), it MUST start with " or '
         
         # Extract content inside []
-        matches = re.findall(r'\[(.*?)\]', line)
+        # Updated regex to handle quoted strings (which may contain brackets) or non-bracketed content
+        matches = re.findall(r'\[("(?:[^"\\]|\\.)*"|\'(?:[^\'\\]|\\.)*\'|.*?)\]', line)
         for content in matches:
             if '(' in content or ')' in content:
                 # Ignore Database shape [()] usage

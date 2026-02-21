@@ -1,0 +1,65 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.0, pytest-9.0.1, pluggy-1.6.0
+baseurl: http://127.0.0.1:8766
+rootdir: D:\SourceCode\REPOS\github.io\ads_spec_seguranca_avancada_e_criptografia
+configfile: pyproject.toml
+plugins: anyio-4.11.0, base-url-2.1.0, cov-7.0.0, mock-3.15.1, playwright-0.7.2
+collected 8 items
+
+tests\test_layout.py .F..F...                                            [100%]
+
+================================== FAILURES ===================================
+______________________ test_homepage_structure[chromium] ______________________
+
+page = <Page url='http://127.0.0.1:8766/'>, base_url = 'http://127.0.0.1:8766'
+
+    def test_homepage_structure(page: Page, base_url):
+        """Test that the homepage loads and has correct structure."""
+        page.set_viewport_size({"width": 1920, "height": 1080})
+        page.goto(base_url)
+    
+        # Check title
+        expect(page).to_have_title("Curso de Express§es Regulares (Regex)")
+    
+        # Check main heading
+        heading = page.locator("h1")
+>       expect(heading).to_contain_text("Curso de Express§es Regulares")
+E       AssertionError: Locator expected to contain text 'Curso de Express§es Regulares'
+E       Actual value: Curso de Algoritmos e L\xf3gica de Programa\xe7\xe3o \U0001f680 
+E       Call log:
+E         - Expect "to_contain_text" with timeout 5000ms
+E         - waiting for locator("h1")
+E           9 \xd7 locator resolved to <h1 id="curso-de-algoritmos-e-logica-de-programacao">Curso de Algoritmos e L\xf3gica de Programa\xe7\xe3o \U0001f680</h1>
+E             - unexpected value "Curso de Algoritmos e L\xf3gica de Programa\xe7\xe3o \U0001f680"
+
+tests\test_layout.py:34: AssertionError
+_______________________ test_slides_structure[chromium] _______________________
+
+page = <Page url='http://127.0.0.1:8766/slides/'>
+base_url = 'http://127.0.0.1:8766'
+
+    def test_slides_structure(page: Page, base_url):
+        """Test that slides are generated correctly."""
+        page.goto(f"{base_url}/slides/")
+    
+        # Check title contains "VisÒo Geral" (the slides index title)
+        title = page.title()
+        assert "VisÒo Geral" in title, f"Expected 'VisÒo Geral' in title, got: {title}"
+    
+        # Check navigation exists
+        # Material MkDocs uses .md-nav but specific page layout might vary
+        # Use h1 check for safety
+>       expect(page.locator("h1")).to_contain_text("VisÒo Geral")
+E       AssertionError: Locator expected to contain text 'VisÒo Geral'
+E       Actual value: Slides 
+E       Call log:
+E         - Expect "to_contain_text" with timeout 5000ms
+E         - waiting for locator("h1")
+E           9 Î locator resolved to <h1 id="slides">Slides</h1>
+E             - unexpected value "Slides"
+
+tests\test_layout.py:87: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_layout.py::test_homepage_structure[chromium] - AssertionErr...
+FAILED tests/test_layout.py::test_slides_structure[chromium] - AssertionError...
+======================== 2 failed, 6 passed in 29.26s =========================

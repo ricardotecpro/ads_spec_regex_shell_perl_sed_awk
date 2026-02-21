@@ -27,17 +27,15 @@ def test_homepage_structure(page: Page, base_url):
     page.goto(base_url)
     
     # Check title
-    expect(page).to_have_title("Lógica e Algoritmos - Curso")
+    expect(page).to_have_title(re.compile(r"Curso de Express.*es Regulares \(Regex\)"))
     
     # Check main heading
     heading = page.locator("h1")
-    expect(heading).to_contain_text("Curso de Algoritmos")
+    expect(heading).to_contain_text(re.compile(r"Curso de Express.*es Regulares"))
     
     # Check navigation cards exist
-    # Material uses .md-typeset .grid.cards
-    # The cards might be inside a div with class "grid cards"
-    # We can check for the existence of the text "Lógica Sólida" which is in the first card
-    expect(page.get_by_text("Lógica Sólida")).to_be_visible()
+    # we can check for the existence of the text "Velocidade Épica" which is in the first card
+    expect(page.get_by_text("Velocidade Épica")).to_be_visible()
 
 # Test 3: Navigation to Lesson 01
 def test_lesson_01_page(page: Page, base_url):
@@ -45,12 +43,12 @@ def test_lesson_01_page(page: Page, base_url):
     page.goto(f"{base_url}/aulas/aula-01/")
     
     # Check title (flexible match)
-    # The actual title in HTML is "Aula 01 - Lógica e Algoritmos - Curso"
-    expect(page).to_have_title(re.compile(r"Aula 01 - Lógica e Algoritmos"))
+    # The actual title in HTML is "Aula 01 - Introdução ao Regex 🔍 - Curso de Expressões Regulares (Regex)"
+    expect(page).to_have_title(re.compile(r"Aula 01 - Introdução ao Regex"))
     
     # Check main heading
     heading = page.locator("h1")
-    expect(heading).to_contain_text("Introdução")
+    expect(heading).to_contain_text("Introdução ao Regex")
     
     # Check quiz containers exist
     quiz_containers = page.locator(".quiz-container")
@@ -79,14 +77,14 @@ def test_slides_structure(page: Page, base_url):
     """Test that slides are generated correctly."""
     page.goto(f"{base_url}/slides/")
     
-    # Check title contains "Slides"
+    # Check title contains "Visão Geral" (the slides index title)
     title = page.title()
-    assert "Slides" in title, f"Expected 'Slides' in title, got: {title}"
+    assert re.search(r"Vis.*o Geral", title), f"Expected 'Visão Geral' in title, got: {title}"
     
     # Check navigation exists
     # Material MkDocs uses .md-nav but specific page layout might vary
     # Use h1 check for safety
-    expect(page.locator("h1")).to_contain_text("Slides")
+    expect(page.locator("h1")).to_contain_text(re.compile(r"Vis.*o Geral"))
     
     # Check content is present (list of slides)
     content = page.locator(".md-content")
@@ -98,8 +96,8 @@ def test_lesson_16_page(page: Page, base_url):
     page.goto(f"{base_url}/aulas/aula-16/")
     
     # Check title
-    # Actual: "Aula 16 (PHP) - Lógica e Algoritmos - Curso"
-    expect(page).to_have_title(re.compile(r"Aula 16 \(PHP\)"))
+    # Actual: "Aula 16 - Projeto Final 🎓 - Curso de Expressões Regulares (Regex)"
+    expect(page).to_have_title(re.compile(r"Aula 16 - Projeto Final"))
     
     # Check quiz containers
     quiz_containers = page.locator(".quiz-container")
