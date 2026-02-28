@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Terminal window frame -->
+  <rect x="10" y="20" width="180" height="140" rx="12" ry="12"
+        stroke="#FFFFFF" stroke-width="8" fill="none"/>
+
+  <!-- Top bar dots -->
+  <circle cx="32" cy="44" r="6" fill="#FFFFFF"/>
+  <circle cx="52" cy="44" r="6" fill="#FFFFFF"/>
+  <circle cx="72" cy="44" r="6" fill="#FFFFFF"/>
+
+  <!-- Divider line -->
+  <line x1="10" y1="58" x2="190" y2="58" stroke="#FFFFFF" stroke-width="6"/>
+
+  <!-- Shell prompt: $ -->
+  <text x="22" y="95" font-family="monospace, Courier New" font-size="26"
+        font-weight="bold" fill="#FFFFFF">$</text>
+
+  <!-- Regex symbol: .* -->
+  <text x="48" y="95" font-family="monospace, Courier New" font-size="26"
+        font-weight="bold" fill="#FFFFFF">.*</text>
+
+  <!-- Second line: [A-Z] -->
+  <text x="22" y="132" font-family="monospace, Courier New" font-size="22"
+        font-weight="bold" fill="#FFFFFF">[A-Z]</text>
+
+  <!-- Blinking cursor block -->
+  <rect x="118" y="115" width="14" height="22" rx="2" fill="#FFFFFF">
+    <animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/>
+  </rect>
+</svg>
