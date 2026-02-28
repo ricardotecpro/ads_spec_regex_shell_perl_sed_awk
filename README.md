@@ -2,7 +2,14 @@
 
 [![Build Status](https://github.com/ricardotecpro/ads_spec_seguranca_avancada_e_criptografia/actions/workflows/ci.yml/badge.svg)](https://github.com/ricardotecpro/ads_spec_seguranca_avancada_e_criptografia/actions)
 
-Curso completo de Expressões Regulares (Regex), estruturado para capacitar o aluno a compreender, construir e aplicar Regex para validação, busca, extração e transformação de textos.
+Curso sobre Expressões Regulares (Regex), estruturado para capacitar o aluno a compreender, construir e aplicar Regex para validação, busca, extração e transformação de textos.
+
+regex
+shell
+perl
+sed
+awk
+
 
 🔗 **Acesse o curso online**: [https://ricardotecpro.github.io/ads_spec_seguranca_avancada_e_criptografia](https://ricardotecpro.github.io/ads_spec_seguranca_avancada_e_criptografia)
 
