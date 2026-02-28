@@ -59,9 +59,5 @@ jobs:
           poetry run task test
           kill $PID
 
-      - name: Deploy with Mike
-        run: |
-          git branch -D gh-pages || echo "gh-pages not present locally"
-          git fetch origin gh-pages --depth=1 || echo "gh-pages branch not found on remote"
-          poetry run mike deploy --push --update-aliases estavel latest
-          poetry run mike set-default --push estavel
+      - name: Deploy to GitHub Pages
+        run: poetry run mkdocs gh-deploy --force
