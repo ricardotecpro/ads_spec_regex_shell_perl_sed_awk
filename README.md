@@ -4,14 +4,14 @@
 
 Curso sobre Expressões Regulares (Regex), estruturado para capacitar o aluno a compreender, construir e aplicar Regex para validação, busca, extração e transformação de textos.
 
-regex
-shell
-perl
-sed
-awk
+1. regex
+2. shell
+3. perl
+4. sed
+5. awk
 
 
-🔗 **Acesse o curso online**: [https://ricardotecpro.github.io/ads_spec_seguranca_avancada_e_criptografia](https://ricardotecpro.github.io/ads_spec_seguranca_avancada_e_criptografia)
+🔗 **Acesse o curso online**: [https://ricardotecpro.github.io/ads_spec_regex_shell_perl_sed_awk](https://ricardotecpro.github.io/ads_spec_regex_shell_perl_sed_awk)
 
 ---
 
@@ -74,4 +74,4 @@ Este projeto utiliza [MkDocs](https://www.mkdocs.org/) com o tema [Material](htt
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
-Feito com ❤️ por [Ricardo Pires](https://ricardotecpro.github.io/)
+Feito por [Ricardo Pires](https://ricardotecpro.github.io/)
